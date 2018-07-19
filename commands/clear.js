@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
   if(isNaN(args[0])) return message.channel.send("**ERROR:** _Please supply a valid number of messages to purge._");
   if(args[0] > 100) return message.channel.send("**ERROR:** _Please supply a number less than 100._")
 
-  await message.delete();
+  await message.delete();llllllllllll
   await message.channel.bulkDelete(args[0])
     .then(messages => message.channel.send(`**Successfully deleted \`${messages.size}/${args[0]}\` messages.**`))
       .catch(error => message.channel.send(`**ERROR:** _${error}_`));

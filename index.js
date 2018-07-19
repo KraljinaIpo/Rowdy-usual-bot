@@ -1,7 +1,8 @@
 const Discord = require("discord.js")
-const botconfig = require("./config.json")
+const botconfig = require("./botconfig.json")
 const bot = new Discord.Client();
 const fs = require("fs");
+const tokenfile = require("./token.json");
 const ordinal = require("ordinal-js");
 let coins = require("./coins.json");
 let xp = require("./xp.json");
@@ -89,7 +90,7 @@ bot.on('guildMemberAdd', member => {
 
 bot.on('guildMemberRemove', member => {
   let channel = member.guild.channels.find('name', 'join-leave-log');
-  let memberavatar = member.user.avatarURL
+  let memberavatar = member.user.avatarURLl
       if (!channel) return;
       let embed = new Discord.RichEmbed()
       .setColor('#c82cf7')
@@ -233,4 +234,4 @@ bot.on("guildMemberRemove", member => {
 });
 
 
-bot.login(botconfig.token)
+bot.login(tokenfile.token);
